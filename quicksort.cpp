@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
 void swap(int arr[], int i, int j){
-                 arr[i] = arr[i]+arr[j];
-                 arr[j]= arr[i]-arr[j];
-                arr[i] = arr[i]- arr[j];
+                 int temp  = arr[i];
+                 arr[i]= arr[j];
+                 arr[j]=temp;
             }
 
-int createPartition(int arr[], int l, int r){
+int Partition(int arr[], int l, int r){
     int pivot=arr[r];
     int i = l-1;
     for(int j=l; j<r; j++){
@@ -20,14 +20,14 @@ int createPartition(int arr[], int l, int r){
 }
 void quickSort(int arr[], int n, int m){
     if(m<n){
-        int pi = createPartition(arr, m, n);
+        int pi = Partition(arr, m, n);
         quickSort(arr, m, pi-1);
         quickSort(arr, pi+1, n);
     }
 }
 int main(){
-    int arr[5]={5, 4, 3, 2,1};
-    quickSort(arr, 0, 4);
+    int arr[5]={5, 4, 3, 2,1, 10};
+    quickSort(arr, 0, 5);
     for(i=0; i<=4; i++){
         cout<<arr[i]<<"\t";
 
