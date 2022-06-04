@@ -6,7 +6,7 @@ void swap(int arr[], int i, int j){
                 arr[i] = arr[i]- arr[j];
             }
 
-int partition(int arr[], int l, int r){
+int createPartition(int arr[], int l, int r){
     int pivot=arr[r];
     int i = l-1;
     for(int j=l; j<r; j++){
@@ -19,10 +19,10 @@ int partition(int arr[], int l, int r){
     return i+1;
 }
 void quickSort(int arr[], int n, int m){
-    if(l<r){
-        int pi = partition(arr, l, r);
-        quickSort(arr, l, pi-1);
-        quickSort(arr, pi+1, r);
+    if(m<n){
+        int pi = createPartition(arr, m, n);
+        quickSort(arr, m, pi-1);
+        quickSort(arr, pi+1, n);
     }
 }
 int main(){
